@@ -6,8 +6,8 @@ game.onUpdate(function () {
     } else if (Flag == 2) {
         tiles.setTilemap(tilemap`レベル3`)
     } else if (Flag == 3) {
-    	
-    } else {
-    	
+        tiles.setTilemap(tilemap`レベル4`)
+    } else if (Flag == 4) {
+        tiles.setTilemap(tilemap`レベル5`)
     }
 })
