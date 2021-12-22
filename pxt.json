@@ -1,0 +1,27 @@
+{
+    "name": "II2_LastWork_2",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "robotbit": "github:KittenBot/meow-robotbit#v0.3.3"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.7.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
