@@ -1,8 +1,11 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    music.baDing.play()
     tiles.setTilemap(tilemap`レベル4`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(14, 0))
+    info.startCountdown(30)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
+    music.baDing.play()
     tiles.setTilemap(tilemap`レベル5`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
 })
@@ -10,18 +13,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, l
     game.over(true)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
+    music.baDing.play()
     tiles.setTilemap(tilemap`レベル2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 })
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    controller.moveSprite(mySprite, 300, 300)
-})
-controller.B.onEvent(ControllerButtonEvent.Released, function () {
-    controller.moveSprite(mySprite, 100, 100)
-})
 let mySprite: Sprite = null
 tiles.setTilemap(tilemap`レベル1`)
-let Flag = 0
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . b b b b b b . . . . . 
@@ -40,11 +37,19 @@ mySprite = sprites.create(img`
     . . . . . b b b b b b . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+let PlayerSpeed = 25
 tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 scene.cameraFollowSprite(mySprite)
 controller.moveSprite(mySprite)
-game.onUpdateInterval(500, function () {
-    if (true) {
-    	
+info.startCountdown(20)
+forever(function () {
+    if (0 > -4096 && 0 < -3050) {
+        mySprite.vx = Math.map(0, -4096, -3050, 0, 80 * PlayerSpeed)
+    } else if (0 > -1 && 0 > -1000) {
+        mySprite.vx = Math.map(0, -1, -1080, 0, -80 * PlayerSpeed)
+    } else if (0 > 1 && 0 > 1050) {
+        mySprite.vy = Math.map(-1, 1, 1050, 0, 60 * PlayerSpeed)
+    } else if (0 > 4096 && 0 > 3100) {
+        mySprite.vy = Math.map(-1, 4097, 3100, 0, -60 * PlayerSpeed)
     }
 })
