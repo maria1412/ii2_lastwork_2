@@ -6,6 +6,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, 
     tiles.setTilemap(tilemap`レベル5`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
+    game.over(true)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     tiles.setTilemap(tilemap`レベル2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
@@ -40,3 +43,8 @@ mySprite = sprites.create(img`
 tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 scene.cameraFollowSprite(mySprite)
 controller.moveSprite(mySprite)
+game.onUpdateInterval(500, function () {
+    if (true) {
+    	
+    }
+})
