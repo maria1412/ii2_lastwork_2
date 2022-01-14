@@ -2,12 +2,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, lo
     music.baDing.play()
     tiles.setTilemap(tilemap`レベル4`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(14, 0))
-    info.startCountdown(30)
+    info.startCountdown(50)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     music.baDing.play()
     tiles.setTilemap(tilemap`レベル5`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
+    info.startCountdown(100)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
     game.over(true)
@@ -16,6 +17,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
     music.baDing.play()
     tiles.setTilemap(tilemap`レベル2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
+    info.startCountdown(50)
 })
 let mySprite: Sprite = null
 tiles.setTilemap(tilemap`レベル1`)
