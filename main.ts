@@ -42,13 +42,13 @@ mySprite = sprites.create(img`
 let PlayerSpeed = 25
 tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
 scene.cameraFollowSprite(mySprite)
-controller.moveSprite(mySprite)
-info.startCountdown(20)
 forever(function () {
-    if (0 > -4096 && 0 < -3050) {
-        mySprite.vx = Math.map(0, -4096, -3050, 0, 80 * PlayerSpeed)
-    } else if (0 > -1 && 0 > -1000) {
-        mySprite.vx = Math.map(0, -1, -1080, 0, -80 * PlayerSpeed)
+    info.player1.setScore(controller.acceleration(ControllerDimension.X))
+    info.player2.setScore(controller.acceleration(ControllerDimension.Y))
+    if (controller.acceleration(ControllerDimension.X) > -1000 && controller.acceleration(ControllerDimension.X) < -30) {
+        mySprite.vx = Math.map(controller.acceleration(ControllerDimension.X), -30, -1000, 0, 80 * PlayerSpeed)
+    } else if (controller.acceleration(ControllerDimension.X) > -4060 && controller.acceleration(ControllerDimension.X) < -3060) {
+        mySprite.vx = Math.map(controller.acceleration(ControllerDimension.X), -4060, -3060, 0, -80 * PlayerSpeed)
     } else if (0 > 1 && 0 > 1050) {
         mySprite.vy = Math.map(-1, 1, 1050, 0, 60 * PlayerSpeed)
     } else if (0 > 4096 && 0 > 3100) {
